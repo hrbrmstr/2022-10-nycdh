@@ -1,0 +1,324 @@
+---
+title: "<span style='color:#b51f1f'>NY Data Hackers</span><br/>Democratizing Data Science Teams <span style='color:#6c6c6c'>With</span> <span style='color:#81a9d7'>Quarto</span>"
+date-format: iso
+author: "boB Rudis (@hrbrmstr)"
+institute: "GreyNoise Intelligence"
+date: today
+title-slide-attributes:
+  data-background-image: "pawel-czerwinski-W10XfpqLu4Y-unsplash.jpg"
+  data-background-opacity: "0.5"
+format:
+  2022-10-nydh-revealjs:
+    echo: true
+    highlight-style: github
+    slide-number: c/t
+    width: 1600
+    height: 900
+    logo: "logo.png"
+---
+
+## Where To Find Me{padding-bottom=60pt}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<center>
+{{< fa blog >}} [rud.is/b](https://rud.is/b/)<br/><br/>
+{{< fa envelope >}} [The Daily Drop](https://dailyfinds.hrbrmstr.dev/)<br/><br/>
+{{< fa briefcase >}} [![GreyNoise](https://assets-global.website-files.com/625f93b2923b4f2b1f2e7b64/625f93b2923b4f074a2e7c09_GN_Logotype_20220410.svg){ width=34% }](https://greynoise.io)<br/><br/>
+{{< fa book >}} [Data-Driven Security](https://www.wiley.com/en-us/Data+Driven+Security:+Analysis,+Visualization+and+Dashboards-p-9781118793725)</span>
+</center>
+:::
+
+::: {.column width="50%"}
+<center style='line-height:60pt'>
+{{< fa brands twitter >}} [@hrbrmstr](https://twitter.com/hrbrmstr)<br/>
+{{< fa brands github >}} [@hrbrmstr](https://github.com/hrbrmstr)<br/>
+<span style="font-size:40pt">**𐍈**</span> [@hrbrmstr](https://observablehq.com/@hrbrmstr)<br/><br/>
+![blue cap shield](blue-shield.png){ width=25% }
+</center>
+:::
+
+::::
+
+## { .dark-title background-image="glen-carrie-YtLAiN5YJ-8-unsplash.jpg" background-opacity="1" } 
+
+- <span style='color:black'>Enable team members to research/experiment/work the way they're most comfortable/productive.</span>
+- <span style='color:black'>Unify & level-up artifacts intended for _humans_.</span>
+- <span style='color:black'>Finally achieve reproducibility goals.</span>
+- <span style='color:black'>Use what the 😎 kids are using.</span>
+
+## { background-image="steve-johnson-y-mB90P-6DY-unsplash.jpg" background-opacity="1" } 
+
+## { background-image="Data-and-AI-Landscape-2021-v3-small.jpg" background-opacity="1" }
+
+## "Data Science" At GreyNoise
+
+- Planetary Scale Passive Sensor Data
+    - `group_by(…) |> summarise(…)` 
+    - Fundamental time-series analytics
+    - "Fancy" ML/AI
+- Website/Blog Performance
+- Business Intelligence
+- Sales Enablement/Insights
+- Any question my boss/🏛/our users+community asks
+
+## Data "Science" Environments Used At GreyNoise
+
+:::: {.columns  layout-valign="middle"}
+
+::: {.column width="50%"}
+- Golang programs
+- Jupyter notebooks
+- Python scripts
+- R Markdown documents
+- R scripts
+- [_Experimenting with_] _Rust_
+- Scala (Glue)
+- SQL
+:::
+
+::: {.column width="50%"}
+- Jupyter[Hu|La]b
+- Observable / JavaScript
+- RAWGraphs
+- RStudio
+- Sublime Text
+- `*vi*`
+- Visual Studio Code
+:::
+
+::::
+
+## A.K.A. Chaos
+
+```{mermaid}
+%%| echo: false
+flowchart LR
+	A[Pandas/Python] --> B[Jupyter]
+	A[Pandas/Python] --> C[R Markdown]
+	A[Pandas/Python] --> D[Shiny]
+	G[R/Tidyverse] --> B[Jupyter]
+	G[R/Tidyverse] --> C[R Markdown]
+	G[R/Tidyverse] --> D[Shiny]
+	L[Rust/Polars] --> B[Jupyter]
+	L[Rust/Polars] --> E[Folder/Git]
+	F[SQL] --> B[Jupyter]
+	F[SQL] --> C[R Markdown]
+	B[Jupyter] --> E[Folders/Git]
+	C[R Markdown] --> E[Folders/Git]
+	D[Shiny] --> I[Web]
+	B[Jupyter] --> J[Lab/Hub]
+	J[Lab/Hub] --> I[Web]
+	C[R Markdown] --> I[Web]
+	E[Folders/Git] --> I[Web]
+	J[Lab/Hub] --> K[Pasted into gDocs/Word/Confluence...]
+	C[R Markdown] --> K[Pasted into gDocs/Word/Confluence...]
+	E[Folders/Git] --> K[Pasted into gDocs/Word/Confluence...]
+```
+
+## { background-image="quarto-site.png" background-opacity="1" }
+
+##
+
+:::: {.columns layout-valign="middle"}
+
+::: {.notes}
+1452–53
+:::
+
+::: {.column width="50%"}
+![](quarto.jpg){ width="70%" }
+:::
+
+::: {.column width="50%" layout-valign="middle"}
+<center>
+<div style='padding-top:100pt; font-size: 60pt'>
+<span style='color:#8819B8'>Knowledge</span> 
+<span style='color:#0DAF64'>Democratization</span>
+</div>
+</center>
+::: 
+
+::::
+
+## Quarto's Organizational Sweet Spot: Documentation { .dark-title background-image="chiara-f-MI8He1NWPWg-unsplash.jpg" background-opacity="1" } 
+
+## Quarto's Organizational Sweet Spot: Communication { background-image="mario-caruso-0C9VmZUqcT8-unsplash.jpg" background-opacity="1" } 
+
+## Quarto's Organizational Sweet Spot: Uniform Style { background-image="marcus-ganahl-W5qgKZj-qnk-unsplash.jpg" background-opacity="1" } 
+
+## Quarto's Organizational Sweet Spot: Reproducibility { .dark-title background-image="emotion-tech-HPEOsBTn8Ps-unsplash.jpg" background-opacity="1" } 
+
+## 🔋🔋🔋 Included
+
+1st Class Citizens:
+
+- R
+- Python
+- Julia
+- Observbable/JavaScript `#WAT`
+- <span style='color:goldenrod'>But, I'm lying to you… </span>R & Python have built-in extensibility (i.e. `{V8}`, `{rJava}`, `{reticulate}`)
+- And, it goes way beyond that…
+
+## So. Many. Kernels.^[<https://github.com/jupyter/jupyter/wiki/Jupyter-kernels>]
+
+```{ojs}
+//|echo: false
+wordCloud = {
+  const fontFamily = "Roboto Condensed, Arial, Helvetica, sans-serif";
+  
+  const svg = d3.create("svg")
+    .attr("id", "word-cloud")
+    .attr("viewBox", [0, 0, width, height])
+    .attr("font-family", fontFamily)
+    .attr("text-anchor", "middle");
+
+  const displaySelection = svg.append("text")
+    .attr("font-family", "Lucida Console, Courier, monospace")
+    .attr("text-anchor", "start")
+    .attr("alignment-baseline", "hanging")
+    .attr("x", 10)
+    .attr("y", 10);
+    
+  const cloud = d3.cloud()
+    .size([width, height])
+    .words(data.map(d => Object.create(d)))
+    .padding(0)
+    .rotate(() => 0)
+    .font(fontFamily)
+    .fontSize(d => s(d.value))
+    .on("word", ({size, x, y, rotate, text}) => {
+      svg.append("text")
+        .attr("font-size", size)
+        .attr("transform", `translate(${x},${y}) rotate(${rotate})`)
+        .text(text)
+        .classed("click-only-text", true)
+        .classed("word-default", true)
+        .on("mouseover", handleMouseOver)
+        .on("mouseout", handleMouseOut)
+        .on("click", handleClick);
+      
+        function handleMouseOver(d, i) {
+          d3.select(this)
+            .classed("word-hovered", true)
+            .transition(`mouseover-${text}`).duration(200).ease(d3.easeLinear)
+              .attr("font-size", size + 2)
+              .attr("font-weight", "bold");
+        }
+        
+        function handleMouseOut(d, i) {
+          d3.select(this)
+            .classed("word-hovered", false)
+            .interrupt(`mouseover-${text}`)
+              .attr("font-size", size);
+        }
+        
+        function handleClick(d, i) {
+          var e = d3.select(this);
+          displaySelection.text(`selection="${e.text()}"`);
+          e.classed("word-selected", !e.classed("word-selected"));
+        }
+
+    });
+  
+  cloud.start();
+  invalidation.then(() => cloud.stop());
+  
+  return svg.node();
+}
+```
+
+```{ojs}
+//|echo: false
+html`<style type="text/css">
+
+  .click-only-text {
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  .click-only-text::selection {
+      background: none;
+    }
+
+  .word-default {
+      fill: cadetblue;
+      font-weight: normal;
+    }
+  .word-hovered {
+      fill: white;
+      font-weight: bold;
+    }
+  .word-selected {
+      fill: darkslategrey;
+      font-weight: bold;
+    }
+
+</style>`;
+```
+
+```{ojs}
+//|echo: false
+s = d3
+  .scaleSqrt()
+  .domain([1, d3.max(data.map((d) => d.value))])
+  .range([6, 102])
+```
+
+```{ojs}
+//|echo: false
+padding = 0
+```
+
+```{ojs}
+//|echo: false
+height = 700
+```
+
+```{ojs}
+//|echo: false
+data = [ { "text": "Micronaut", "value": 17 }, { "text": "Agda kernel", "value": 12 }, { "text": "Dyalog Jupyter Kernel", "value": 1 }, { "text": "Coarray-Fortran", "value": 2 }, { "text": "LFortran", "value": 18 }, { "text": "Ansible Jupyter Kernel", "value": 3 }, { "text": "sparkmagic", "value": 12 }, { "text": "sas_kernel", "value": 9 }, { "text": "IPyKernel", "value": 17 }, { "text": "IJulia", "value": 18 }, { "text": "IHaskell", "value": 1 }, { "text": "IRuby", "value": 5 }, { "text": "tslab", "value": 15 }, { "text": "IJavascript", "value": 80 }, { "text": "ITypeScript", "value": 8 }, { "text": "jpCoffeescript", "value": 5 }, { "text": "jp-LiveScript", "value": 8 }, { "text": "Juka", "value": 14 }, { "text": "ICSharp", "value": 3 }, { "text": "IRKernel", "value": 54 }, { "text": "SageMath", "value": 9 }, { "text": "pari_jupyter", "value": 19 }, { "text": "IFSharp", "value": 15 }, { "text": "lgo", "value": 17 }, { "text": "iGalileo", "value": 20 }, { "text": "gopherlab", "value": 16 }, { "text": "Gophernotes", "value": 49 }, { "text": "IGo", "value": 73 }, { "text": "IScala", "value": 1 }, { "text": "almond (old name: Jupyter-scala)", "value": 5 }, { "text": "IErlang", "value": 4 }, { "text": "ITorch", "value": 14 }, { "text": "IElixir", "value": 13 }, { "text": "ierl", "value": 4 }, { "text": "IAldor", "value": 11 }, { "text": "IOCaml", "value": 5 }, { "text": "OCaml-Jupyter", "value": 12 }, { "text": "IForth", "value": 1 }, { "text": "peforth", "value": 2 }, { "text": "IPerl", "value": 5 }, { "text": "Perl6", "value": 12 }, { "text": "IPerl6", "value": 12 }, { "text": "Jupyter-Perl6", "value": 6 }, { "text": "IPHP", "value": 10 }, { "text": "Jupyter-PHP", "value": 17 }, { "text": "IOctave", "value": 4 }, { "text": "IScilab", "value": 6 }, { "text": "MATLAB Kernel", "value": 7 }, { "text": "Bash", "value": 17 }, { "text": "Z shell", "value": 8 }, { "text": "Pharo Smalltalk", "value": 9 }, { "text": "PowerShell", "value": 9 }, { "text": "CloJupyter", "value": 2 }, { "text": "CLJ-Jupyter", "value": 15 }, { "text": "jupyter-kernel-jsr223", "value": 9 }, { "text": "Hy Kernel", "value": 2 }, { "text": "Calysto Hy", "value": 11 }, { "text": "Redis Kernel", "value": 19 }, { "text": "jove", "value": 7 }, { "text": "jp-babel", "value": 20 }, { "text": "ICalico", "value": 16 }, { "text": "IMathics", "value": 13 }, { "text": "IWolfram", "value": 17 }, { "text": "Lua Kernel", "value": 1 }, { "text": "IPurescript", "value": 15 }, { "text": "IPyLua", "value": 19 }, { "text": "ILua", "value": 7 }, { "text": "Calysto Scheme", "value": 14 }, { "text": "Calysto Processing", "value": 7 }, { "text": "idl_kernel", "value": 10 }, { "text": "Mochi Kernel", "value": 6 }, { "text": "Lua (used in Splash)", "value": 5 }, { "text": "Apache Toree (formerly Spark Kernel)", "value": 2 }, { "text": "Skulpt Python Kernel", "value": 42 }, { "text": "Calysto Bash", "value": 11 }, { "text": "MetaKernel Python", "value": 71 }, { "text": "IVisual", "value": 12 }, { "text": "IBrainfuck", "value": 15 }, { "text": "JupyterQ (KX Official Kernel)", "value": 9 }, { "text": "KDB+/Q Kernel (IKdbQ)", "value": 20 }, { "text": "KDB+/Q Kernel (KdbQ Kernel)", "value": 6 }, { "text": "PyQ Kernel", "value": 12 }, { "text": "ICryptol", "value": 2 }, { "text": "cling", "value": 6 }, { "text": "xeus-cling", "value": 8 }, { "text": "Xonsh", "value": 16 }, { "text": "Prolog", "value": 6 }, { "text": "SWI-Prolog", "value": 19 }, { "text": "common-lisp-jupyter", "value": 15 }, { "text": "Maxima-Jupyter", "value": 15 }, { "text": "ielisp", "value": 2 }, { "text": "Calysto LC3", "value": 13 }, { "text": "Yacas", "value": 15 }, { "text": "IJython", "value": 9 }, { "text": "ROOT", "value": 16 }, { "text": "Gnuplot Kernel", "value": 10 }, { "text": "Tcl", "value": 12 }, { "text": "Tcl", "value": 6 }, { "text": "J", "value": 16 }, { "text": "Jython", "value": 5 }, { "text": "C", "value": 13 }, { "text": "jupyterC", "value": 8 }, { "text": "TaQL", "value": 5 }, { "text": "Coconut", "value": 12 }, { "text": "SPARQL", "value": 2 }, { "text": "AIML chatbot", "value": 13 }, { "text": "IArm", "value": 11 }, { "text": "SoS", "value": 4 }, { "text": "jupyter-nodejs", "value": 4 }, { "text": "Pike", "value": 11 }, { "text": "imatlab", "value": 6 }, { "text": "jupyter-kotlin", "value": 12 }, { "text": "jupyter_kernel_singular", "value": 9 }, { "text": "spylon-kernel", "value": 20 }, { "text": "mit-scheme-kernel", "value": 2 }, { "text": "elm-kernel", "value": 20 }, { "text": "Isbt", "value": 1 }, { "text": "BeakerX", "value": 13 }, { "text": "MicroPython", "value": 80 }, { "text": "IJava", "value": 55 }, { "text": "Guile", "value": 17 }, { "text": "circuitpython_kernel", "value": 18 }, { "text": "stata_kernel", "value": 3 }, { "text": "iPyStata", "value": 16 }, { "text": "IRacket", "value": 55 }, { "text": "jupyter-dot-kernel", "value": 17 }, { "text": "Teradata SQL kernel and extensions", "value": 15 }, { "text": "HiveQL Kernel", "value": 10 }, { "text": "EvCxR Jupyter Kernel", "value": 5 }, { "text": "StuPyd Kernel", "value": 5 }, { "text": "coq_jupyter", "value": 15 }, { "text": "Cadabra2", "value": 14 }, { "text": "iMongo", "value": 14 }, { "text": "jupyter_kernel_chapel", "value": 11 }, { "text": "A Jupyter kernel for Vim script", "value": 13 }, { "text": "SSH Kernel", "value": 14 }, { "text": "GAP Kernel", "value": 1 }, { "text": "Wolfram Language for Jupyter", "value": 13 }, { "text": "GrADS kernel", "value": 1 }, { "text": "Bacatá", "value": 4 }, { "text": "nelu-kernelu", "value": 9 }, { "text": "IPolyglot", "value": 17 }, { "text": "Emu86 Kernel", "value": 8 }, { "text": "Common Workflow Language (CWL) Kernel", "value": 7 }, { "text": "MIPS Jupyter Kernel", "value": 13 }, { "text": "iTTS", "value": 3 }, { "text": "xeus-clickhouse", "value": 14 }, { "text": "IQSharp", "value": 1 }, { "text": ".Net Interactive", "value": 18 }, { "text": "mariadb_kernel", "value": 12 }, { "text": "ISetlX", "value": 15 }, { "text": "Ganymede", "value": 13 }, { "text": "cqljupyter", "value": 2 }, { "text": "iclingo", "value": 2 }, { "text": "ICrystal", "value": 17 }, { "text": "crystal_kernel", "value": 1 }, { "text": "idg", "value": 16 }, { "text": "Whitenote", "value": 7 } ]
+```
+
+```{ojs}
+//|echo: false
+d3 = {
+  const d3 = await require("d3@5", "d3-array@2");
+  d3.cloud = await require("d3-cloud@1");
+  return d3;
+}
+```
+
+## Observable, You Say?^[<https://observablehq.com/>]
+
+![](observable-splash.png)
+
+## Observable, You Say?^[<https://chrome.google.com/webstore/detail/quartize/bcggojdjahdjhccmeanbnidmoicknmbb>]
+
+![](obs1.jpg)
+![](obs2.jpg)
+
+## Reproduciblity
+
+`quarto render …`
+
+## The Quarto Value Proposition (i.e. What you get…)
+
+- Access to language agnostic cutting-edge data analysis and visalization tools
+- Uniform styling across web sites, documents, and presenations
+- Reproduciblity
+- Content Adaptibility
+- Fame and fortune^[Fame & fortune not guaranteed.]
+
+## Where To Start
+
+- 🤓 `quarto.org`
+- ✨ [Awesome Quarto](https://github.com/mcanouil/awesome-quarto) 🔖
+- 👩🏽‍🎨 Your org/team designer/brand folks
+- 💪 [Creating a Website](https://quarto.org/docs/websites/)
+    - 🥶 [Freezing content](https://quarto.org/docs/projects/code-execution.html)
+- 🏋🏽‍♂️ [Rocker](https://rocker-project.org/)
+    - ➕ [Extending Docker](https://carpentries-incubator.github.io/docker-introduction/)

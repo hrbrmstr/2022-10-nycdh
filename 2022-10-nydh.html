@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="2022-10-nydh_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2022-10-nydh_files/libs/quarto-html/tabby.min.js"></script>
+<script src="2022-10-nydh_files/libs/quarto-html/popper.min.js"></script>
+<script src="2022-10-nydh_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="2022-10-nydh_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="2022-10-nydh_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="2022-10-nydh_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="2022-10-nydh_files/libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="2022-10-nydh_files/libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.2.242">
+
+  <meta name="author" content="boB Rudis (@hrbrmstr)">
+  <meta name="dcterms.date" content="2022-10-26">
+  <title>NY Data Hackers Democratizing Data Science Teams With Quarto</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="2022-10-nydh_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="2022-10-nydh_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #e1e4e8; background-color: #24292e; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #e1e4e8; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #f97583; } /* Attribute */
+    code span.bn { color: #79b8ff; } /* BaseN */
+    code span.bu { color: #f97583; } /* BuiltIn */
+    code span.cf { color: #f97583; } /* ControlFlow */
+    code span.ch { color: #9ecbff; } /* Char */
+    code span.cn { color: #79b8ff; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #f97583; } /* DataType */
+    code span.dv { color: #79b8ff; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #f97583; font-weight: bold; } /* Extension */
+    code span.fl { color: #79b8ff; } /* Float */
+    code span.fu { color: #b392f0; } /* Function */
+    code span.im { color: #9ecbff; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #f97583; } /* Keyword */
+    code span.op { color: #e1e4e8; } /* Operator */
+    code span.ot { color: #b392f0; } /* Other */
+    code span.pp { color: #f97583; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #79b8ff; } /* SpecialChar */
+    code span.ss { color: #9ecbff; } /* SpecialString */
+    code span.st { color: #9ecbff; } /* String */
+    code span.va { color: #ffab70; } /* Variable */
+    code span.vs { color: #9ecbff; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="2022-10-nydh_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="2022-10-nydh_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="2022-10-nydh_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="2022-10-nydh_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="2022-10-nydh_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script type="module" src="2022-10-nydh_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="2022-10-nydh_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+  <script src="2022-10-nydh_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="2022-10-nydh_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="2022-10-nydh_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="pawel-czerwinski-W10XfpqLu4Y-unsplash.jpg" data-background-opacity="0.5" class="quarto-title-block center">
+  <h1 class="title"><span style="color:#b51f1f">NY Data Hackers</span><br>Democratizing Data Science Teams <span style="color:#6c6c6c">With</span> <span style="color:#81a9d7">Quarto</span></h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+boB Rudis (<span class="citation" data-cites="hrbrmstr">@hrbrmstr</span>) 
+</div>
+        <p class="quarto-title-affiliation">
+            GreyNoise Intelligence
+          </p>
+    </div>
+</div>
+
+  <p class="date">2022-10-26</p>
+</section>
+<section id="where-to-find-me" class="slide level2" data-padding-bottom="60pt">
+<h2>Where To Find Me</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<center>
+<i class="fa-solid fa-blog" aria-label="blog"></i> <a href="https://rud.is/b/">rud.is/b</a><br><br> <i class="fa-solid fa-envelope" aria-label="envelope"></i> <a href="https://dailyfinds.hrbrmstr.dev/">The Daily Drop</a><br><br> <i class="fa-solid fa-briefcase" aria-label="briefcase"></i> <a href="https://greynoise.io"><img data-src="https://assets-global.website-files.com/625f93b2923b4f2b1f2e7b64/625f93b2923b4f074a2e7c09_GN_Logotype_20220410.svg" style="width:34.0%" alt="GreyNoise"></a><br><br> <i class="fa-solid fa-book" aria-label="book"></i> <a href="https://www.wiley.com/en-us/Data+Driven+Security:+Analysis,+Visualization+and+Dashboards-p-9781118793725">Data-Driven Security</a>
+</center>
+</div><div class="column" style="width:50%;">
+<center style="line-height:60pt">
+<i class="fa-brands fa-twitter" aria-label="twitter"></i> <a href="https://twitter.com/hrbrmstr"><span class="citation" data-cites="hrbrmstr">@hrbrmstr</span></a><br> <i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/hrbrmstr"><span class="citation" data-cites="hrbrmstr">@hrbrmstr</span></a><br> <span style="font-size:40pt"><strong>𐍈</strong></span> <a href="https://observablehq.com/@hrbrmstr"><span class="citation" data-cites="hrbrmstr">@hrbrmstr</span></a><br><br> <img data-src="blue-shield.png" style="width:25.0%" alt="blue cap shield">
+</center>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2 dark-title" data-background-image="glen-carrie-YtLAiN5YJ-8-unsplash.jpg" data-background-opacity="1">
+<h2></h2>
+<ul>
+<li class="fragment"><span style="color:black">Enable team members to research/experiment/work the way they’re most comfortable/productive.</span></li>
+<li class="fragment"><span style="color:black">Unify &amp; level-up artifacts intended for <em>humans</em>.</span></li>
+<li class="fragment"><span style="color:black">Finally achieve reproducibility goals.</span></li>
+<li class="fragment"><span style="color:black">Use what the 😎 kids are using.</span></li>
+</ul>
+</section>
+<section id="section-1" class="slide level2" data-background-image="steve-johnson-y-mB90P-6DY-unsplash.jpg" data-background-opacity="1">
+<h2></h2>
+</section>
+<section id="section-2" class="slide level2" data-background-image="Data-and-AI-Landscape-2021-v3-small.jpg" data-background-opacity="1">
+<h2></h2>
+</section>
+<section id="data-science-at-greynoise" class="slide level2">
+<h2>“Data Science” At GreyNoise</h2>
+<ul>
+<li class="fragment">Planetary Scale Passive Sensor Data
+<ul>
+<li class="fragment"><code>group_by(…) |&gt; summarise(…)</code></li>
+<li class="fragment">Fundamental time-series statistics</li>
+<li class="fragment">“Fancy” ML/AI</li>
+</ul></li>
+<li class="fragment">Website/Blog Performance</li>
+<li class="fragment">Business Intelligence</li>
+<li class="fragment">Sales Enablement/Insights</li>
+<li class="fragment">Any question my boss/🏛/our users+community asks</li>
+</ul>
+</section>
+<section id="data-science-environments-used-at-greynoise" class="slide level2">
+<h2>Data “Science” Environments Used At GreyNoise</h2>
+<div class="columns" data-layout-valign="middle">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Golang programs</li>
+<li class="fragment">Jupyter notebooks</li>
+<li class="fragment">Python scripts</li>
+<li class="fragment">R Markdown documents</li>
+<li class="fragment">R scripts</li>
+<li class="fragment">[<em>Experimenting with</em>] <em>Rust</em></li>
+<li class="fragment">Scala (Glue)</li>
+<li class="fragment">SQL</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Jupyter[Hu|La]b</li>
+<li class="fragment">Observable / JavaScript</li>
+<li class="fragment">RAWGraphs</li>
+<li class="fragment">RStudio</li>
+<li class="fragment">Sublime Text</li>
+<li class="fragment"><code>*vi*</code></li>
+<li class="fragment">Visual Studio Code</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="a.k.a.-chaos" class="slide level2">
+<h2>A.K.A. Chaos</h2>
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
+    A[Pandas/Python] --&gt; B[Jupyter]
+    A[Pandas/Python] --&gt; C[R Markdown]
+    A[Pandas/Python] --&gt; D[Shiny]
+    G[R/Tidyverse] --&gt; B[Jupyter]
+    G[R/Tidyverse] --&gt; C[R Markdown]
+    G[R/Tidyverse] --&gt; D[Shiny]
+    L[Rust/Polars] --&gt; B[Jupyter]
+    L[Rust/Polars] --&gt; E[Folder/Git]
+    F[SQL] --&gt; B[Jupyter]
+    F[SQL] --&gt; C[R Markdown]
+    B[Jupyter] --&gt; E[Folders/Git]
+    C[R Markdown] --&gt; E[Folders/Git]
+    D[Shiny] --&gt; I[Web]
+    B[Jupyter] --&gt; J[Lab/Hub]
+    J[Lab/Hub] --&gt; I[Web]
+    C[R Markdown] --&gt; I[Web]
+    E[Folders/Git] --&gt; I[Web]
+    J[Lab/Hub] --&gt; K[Pasted into gDocs/Word/Confluence...]
+    C[R Markdown] --&gt; K[Pasted into gDocs/Word/Confluence...]
+    E[Folders/Git] --&gt; K[Pasted into gDocs/Word/Confluence...]
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="section-3" class="slide level2" data-background-image="quarto-site.png" data-background-opacity="1">
+<h2></h2>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<div class="columns" data-layout-valign="middle">
+<aside class="notes">
+<p>1452–53</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside><div class="column" style="width:50%;">
+<p><img data-src="quarto.jpg" style="width:70.0%"></p>
+</div><div class="column" data-layout-valign="middle" style="width:50%;">
+<center>
+<div style="padding-top:100pt; font-size: 60pt">
+<p><span style="color:#8819B8">Knowledge</span> <span style="color:#0DAF64">Democratization</span></p>
+</div>
+</center>
+</div>
+</div>
+</section>
+<section id="quartos-organizational-sweet-spot-documentation" class="slide level2 dark-title" data-background-image="chiara-f-MI8He1NWPWg-unsplash.jpg" data-background-opacity="1">
+<h2>Quarto’s Organizational Sweet Spot: Documentation</h2>
+</section>
+<section id="quartos-organizational-sweet-spot-communication" class="slide level2" data-background-image="mario-caruso-0C9VmZUqcT8-unsplash.jpg" data-background-opacity="1">
+<h2>Quarto’s Organizational Sweet Spot: Communication</h2>
+</section>
+<section id="quartos-organizational-sweet-spot-uniform-style" class="slide level2" data-background-image="marcus-ganahl-W5qgKZj-qnk-unsplash.jpg" data-background-opacity="1">
+<h2>Quarto’s Organizational Sweet Spot: Uniform Style</h2>
+</section>
+<section id="quartos-organizational-sweet-spot-reproducibility" class="slide level2 dark-title" data-background-image="emotion-tech-HPEOsBTn8Ps-unsplash.jpg" data-background-opacity="1">
+<h2>Quarto’s Organizational Sweet Spot: Reproducibility</h2>
+</section>
+<section id="included" class="slide level2">
+<h2>🔋🔋🔋 Included</h2>
+<p>1st Class Citizens:</p>
+<ul>
+<li class="fragment">R</li>
+<li class="fragment">Python</li>
+<li class="fragment">Julia</li>
+<li class="fragment">Observbable/JavaScript <code>#WAT</code></li>
+<li class="fragment"><span style="color:goldenrod">But, I’m lying to you… </span>R &amp; Python have built-in extensibility (i.e.&nbsp;<code>{V8}</code>, <code>{rJava}</code>, <code>{reticulate}</code>)</li>
+<li class="fragment">And, it goes way beyond that…</li>
+</ul>
+</section>
+<section id="so.-many.-kernels." class="slide level2">
+<h2>So. Many. Kernels.<sup>1</sup></h2>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="167" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 166;"><span id="cb1-167"><a href="#cb1-167"></a>wordCloud <span class="op">=</span> {</span>
+<span id="cb1-168"><a href="#cb1-168"></a>  <span class="kw">const</span> fontFamily <span class="op">=</span> <span class="st">"Roboto Condensed, Arial, Helvetica, sans-serif"</span><span class="op">;</span></span>
+<span id="cb1-169"><a href="#cb1-169"></a>  </span>
+<span id="cb1-170"><a href="#cb1-170"></a>  <span class="kw">const</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">create</span>(<span class="st">"svg"</span>)</span>
+<span id="cb1-171"><a href="#cb1-171"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"id"</span><span class="op">,</span> <span class="st">"word-cloud"</span>)</span>
+<span id="cb1-172"><a href="#cb1-172"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"viewBox"</span><span class="op">,</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> width<span class="op">,</span> height])</span>
+<span id="cb1-173"><a href="#cb1-173"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-family"</span><span class="op">,</span> fontFamily)</span>
+<span id="cb1-174"><a href="#cb1-174"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"middle"</span>)<span class="op">;</span></span>
+<span id="cb1-175"><a href="#cb1-175"></a></span>
+<span id="cb1-176"><a href="#cb1-176"></a>  <span class="kw">const</span> displaySelection <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
+<span id="cb1-177"><a href="#cb1-177"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-family"</span><span class="op">,</span> <span class="st">"Lucida Console, Courier, monospace"</span>)</span>
+<span id="cb1-178"><a href="#cb1-178"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"start"</span>)</span>
+<span id="cb1-179"><a href="#cb1-179"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"alignment-baseline"</span><span class="op">,</span> <span class="st">"hanging"</span>)</span>
+<span id="cb1-180"><a href="#cb1-180"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">10</span>)</span>
+<span id="cb1-181"><a href="#cb1-181"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb1-182"><a href="#cb1-182"></a>    </span>
+<span id="cb1-183"><a href="#cb1-183"></a>  <span class="kw">const</span> cloud <span class="op">=</span> d3<span class="op">.</span><span class="fu">cloud</span>()</span>
+<span id="cb1-184"><a href="#cb1-184"></a>    <span class="op">.</span><span class="fu">size</span>([width<span class="op">,</span> height])</span>
+<span id="cb1-185"><a href="#cb1-185"></a>    <span class="op">.</span><span class="fu">words</span>(data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">create</span>(d)))</span>
+<span id="cb1-186"><a href="#cb1-186"></a>    <span class="op">.</span><span class="fu">padding</span>(<span class="dv">0</span>)</span>
+<span id="cb1-187"><a href="#cb1-187"></a>    <span class="op">.</span><span class="fu">rotate</span>(() <span class="kw">=&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb1-188"><a href="#cb1-188"></a>    <span class="op">.</span><span class="fu">font</span>(fontFamily)</span>
+<span id="cb1-189"><a href="#cb1-189"></a>    <span class="op">.</span><span class="fu">fontSize</span>(d <span class="kw">=&gt;</span> <span class="fu">s</span>(d<span class="op">.</span><span class="at">value</span>))</span>
+<span id="cb1-190"><a href="#cb1-190"></a>    <span class="op">.</span><span class="fu">on</span>(<span class="st">"word"</span><span class="op">,</span> ({size<span class="op">,</span> x<span class="op">,</span> y<span class="op">,</span> rotate<span class="op">,</span> text}) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-191"><a href="#cb1-191"></a>      svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
+<span id="cb1-192"><a href="#cb1-192"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-size"</span><span class="op">,</span> size)</span>
+<span id="cb1-193"><a href="#cb1-193"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"transform"</span><span class="op">,</span> <span class="vs">`translate(</span><span class="sc">${</span>x<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>y<span class="sc">}</span><span class="vs">) rotate(</span><span class="sc">${</span>rotate<span class="sc">}</span><span class="vs">)`</span>)</span>
+<span id="cb1-194"><a href="#cb1-194"></a>        <span class="op">.</span><span class="fu">text</span>(text)</span>
+<span id="cb1-195"><a href="#cb1-195"></a>        <span class="op">.</span><span class="fu">classed</span>(<span class="st">"click-only-text"</span><span class="op">,</span> <span class="kw">true</span>)</span>
+<span id="cb1-196"><a href="#cb1-196"></a>        <span class="op">.</span><span class="fu">classed</span>(<span class="st">"word-default"</span><span class="op">,</span> <span class="kw">true</span>)</span>
+<span id="cb1-197"><a href="#cb1-197"></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">"mouseover"</span><span class="op">,</span> handleMouseOver)</span>
+<span id="cb1-198"><a href="#cb1-198"></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">"mouseout"</span><span class="op">,</span> handleMouseOut)</span>
+<span id="cb1-199"><a href="#cb1-199"></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">"click"</span><span class="op">,</span> handleClick)<span class="op">;</span></span>
+<span id="cb1-200"><a href="#cb1-200"></a>      </span>
+<span id="cb1-201"><a href="#cb1-201"></a>        <span class="kw">function</span> <span class="fu">handleMouseOver</span>(d<span class="op">,</span> i) {</span>
+<span id="cb1-202"><a href="#cb1-202"></a>          d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
+<span id="cb1-203"><a href="#cb1-203"></a>            <span class="op">.</span><span class="fu">classed</span>(<span class="st">"word-hovered"</span><span class="op">,</span> <span class="kw">true</span>)</span>
+<span id="cb1-204"><a href="#cb1-204"></a>            <span class="op">.</span><span class="fu">transition</span>(<span class="vs">`mouseover-</span><span class="sc">${</span>text<span class="sc">}</span><span class="vs">`</span>)<span class="op">.</span><span class="fu">duration</span>(<span class="dv">200</span>)<span class="op">.</span><span class="fu">ease</span>(d3<span class="op">.</span><span class="at">easeLinear</span>)</span>
+<span id="cb1-205"><a href="#cb1-205"></a>              <span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-size"</span><span class="op">,</span> size <span class="op">+</span> <span class="dv">2</span>)</span>
+<span id="cb1-206"><a href="#cb1-206"></a>              <span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-weight"</span><span class="op">,</span> <span class="st">"bold"</span>)<span class="op">;</span></span>
+<span id="cb1-207"><a href="#cb1-207"></a>        }</span>
+<span id="cb1-208"><a href="#cb1-208"></a>        </span>
+<span id="cb1-209"><a href="#cb1-209"></a>        <span class="kw">function</span> <span class="fu">handleMouseOut</span>(d<span class="op">,</span> i) {</span>
+<span id="cb1-210"><a href="#cb1-210"></a>          d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
+<span id="cb1-211"><a href="#cb1-211"></a>            <span class="op">.</span><span class="fu">classed</span>(<span class="st">"word-hovered"</span><span class="op">,</span> <span class="kw">false</span>)</span>
+<span id="cb1-212"><a href="#cb1-212"></a>            <span class="op">.</span><span class="fu">interrupt</span>(<span class="vs">`mouseover-</span><span class="sc">${</span>text<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb1-213"><a href="#cb1-213"></a>              <span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-size"</span><span class="op">,</span> size)<span class="op">;</span></span>
+<span id="cb1-214"><a href="#cb1-214"></a>        }</span>
+<span id="cb1-215"><a href="#cb1-215"></a>        </span>
+<span id="cb1-216"><a href="#cb1-216"></a>        <span class="kw">function</span> <span class="fu">handleClick</span>(d<span class="op">,</span> i) {</span>
+<span id="cb1-217"><a href="#cb1-217"></a>          <span class="kw">var</span> e <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">;</span></span>
+<span id="cb1-218"><a href="#cb1-218"></a>          displaySelection<span class="op">.</span><span class="fu">text</span>(<span class="vs">`selection="</span><span class="sc">${</span>e<span class="op">.</span><span class="fu">text</span>()<span class="sc">}</span><span class="vs">"`</span>)<span class="op">;</span></span>
+<span id="cb1-219"><a href="#cb1-219"></a>          e<span class="op">.</span><span class="fu">classed</span>(<span class="st">"word-selected"</span><span class="op">,</span> <span class="op">!</span>e<span class="op">.</span><span class="fu">classed</span>(<span class="st">"word-selected"</span>))<span class="op">;</span></span>
+<span id="cb1-220"><a href="#cb1-220"></a>        }</span>
+<span id="cb1-221"><a href="#cb1-221"></a></span>
+<span id="cb1-222"><a href="#cb1-222"></a>    })<span class="op">;</span></span>
+<span id="cb1-223"><a href="#cb1-223"></a>  </span>
+<span id="cb1-224"><a href="#cb1-224"></a>  cloud<span class="op">.</span><span class="fu">start</span>()<span class="op">;</span></span>
+<span id="cb1-225"><a href="#cb1-225"></a>  invalidation<span class="op">.</span><span class="fu">then</span>(() <span class="kw">=&gt;</span> cloud<span class="op">.</span><span class="fu">stop</span>())<span class="op">;</span></span>
+<span id="cb1-226"><a href="#cb1-226"></a>  </span>
+<span id="cb1-227"><a href="#cb1-227"></a>  <span class="cf">return</span> svg<span class="op">.</span><span class="fu">node</span>()<span class="op">;</span></span>
+<span id="cb1-228"><a href="#cb1-228"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="233" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 232;"><span id="cb2-233"><a href="#cb2-233"></a><span class="fu">html</span><span class="vs">`&lt;style type="text/css"&gt;</span></span>
+<span id="cb2-234"><a href="#cb2-234"></a></span>
+<span id="cb2-235"><a href="#cb2-235"></a><span class="vs">  .click-only-text {</span></span>
+<span id="cb2-236"><a href="#cb2-236"></a><span class="vs">      cursor: pointer;</span></span>
+<span id="cb2-237"><a href="#cb2-237"></a><span class="vs">      -webkit-user-select: none;</span></span>
+<span id="cb2-238"><a href="#cb2-238"></a><span class="vs">      -moz-user-select: none;</span></span>
+<span id="cb2-239"><a href="#cb2-239"></a><span class="vs">      -ms-user-select: none;</span></span>
+<span id="cb2-240"><a href="#cb2-240"></a><span class="vs">      user-select: none;</span></span>
+<span id="cb2-241"><a href="#cb2-241"></a><span class="vs">    }</span></span>
+<span id="cb2-242"><a href="#cb2-242"></a><span class="vs">  .click-only-text::selection {</span></span>
+<span id="cb2-243"><a href="#cb2-243"></a><span class="vs">      background: none;</span></span>
+<span id="cb2-244"><a href="#cb2-244"></a><span class="vs">    }</span></span>
+<span id="cb2-245"><a href="#cb2-245"></a></span>
+<span id="cb2-246"><a href="#cb2-246"></a><span class="vs">  .word-default {</span></span>
+<span id="cb2-247"><a href="#cb2-247"></a><span class="vs">      fill: cadetblue;</span></span>
+<span id="cb2-248"><a href="#cb2-248"></a><span class="vs">      font-weight: normal;</span></span>
+<span id="cb2-249"><a href="#cb2-249"></a><span class="vs">    }</span></span>
+<span id="cb2-250"><a href="#cb2-250"></a><span class="vs">  .word-hovered {</span></span>
+<span id="cb2-251"><a href="#cb2-251"></a><span class="vs">      fill: white;</span></span>
+<span id="cb2-252"><a href="#cb2-252"></a><span class="vs">      font-weight: bold;</span></span>
+<span id="cb2-253"><a href="#cb2-253"></a><span class="vs">    }</span></span>
+<span id="cb2-254"><a href="#cb2-254"></a><span class="vs">  .word-selected {</span></span>
+<span id="cb2-255"><a href="#cb2-255"></a><span class="vs">      fill: darkslategrey;</span></span>
+<span id="cb2-256"><a href="#cb2-256"></a><span class="vs">      font-weight: bold;</span></span>
+<span id="cb2-257"><a href="#cb2-257"></a><span class="vs">    }</span></span>
+<span id="cb2-258"><a href="#cb2-258"></a></span>
+<span id="cb2-259"><a href="#cb2-259"></a><span class="vs">&lt;/style&gt;`</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="264" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 263;"><span id="cb3-264"><a href="#cb3-264"></a>s <span class="op">=</span> d3</span>
+<span id="cb3-265"><a href="#cb3-265"></a>  <span class="op">.</span><span class="fu">scaleSqrt</span>()</span>
+<span id="cb3-266"><a href="#cb3-266"></a>  <span class="op">.</span><span class="fu">domain</span>([<span class="dv">1</span><span class="op">,</span> d3<span class="op">.</span><span class="fu">max</span>(data<span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">value</span>))])</span>
+<span id="cb3-267"><a href="#cb3-267"></a>  <span class="op">.</span><span class="fu">range</span>([<span class="dv">6</span><span class="op">,</span> <span class="dv">102</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="272" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 271;"><span id="cb4-272"><a href="#cb4-272"></a>padding <span class="op">=</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="277" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 276;"><span id="cb5-277"><a href="#cb5-277"></a>height <span class="op">=</span> <span class="dv">700</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="282" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 281;"><span id="cb6-282"><a href="#cb6-282"></a>data <span class="op">=</span> [ { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Micronaut"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">17</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Agda kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">12</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Dyalog Jupyter Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">1</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Coarray-Fortran"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">2</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"LFortran"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">18</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Ansible Jupyter Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">3</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"sparkmagic"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">12</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"sas_kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">9</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IPyKernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">17</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IJulia"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">18</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IHaskell"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">1</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IRuby"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"tslab"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">15</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IJavascript"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">80</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"ITypeScript"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">8</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"jpCoffeescript"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"jp-LiveScript"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">8</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Juka"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">14</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"ICSharp"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">3</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IRKernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">54</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"SageMath"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">9</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"pari_jupyter"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">19</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IFSharp"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">15</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"lgo"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">17</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"iGalileo"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">20</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"gopherlab"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">16</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Gophernotes"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">49</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IGo"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">73</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IScala"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">1</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"almond (old name: Jupyter-scala)"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IErlang"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">4</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"ITorch"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">14</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IElixir"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">13</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"ierl"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">4</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IAldor"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">11</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IOCaml"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"OCaml-Jupyter"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">12</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IForth"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">1</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"peforth"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">2</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IPerl"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Perl6"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">12</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IPerl6"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">12</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Jupyter-Perl6"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">6</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IPHP"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">10</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Jupyter-PHP"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">17</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IOctave"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">4</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IScilab"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">6</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"MATLAB Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">7</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Bash"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">17</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Z shell"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">8</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Pharo Smalltalk"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">9</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"PowerShell"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">9</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"CloJupyter"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">2</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"CLJ-Jupyter"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">15</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"jupyter-kernel-jsr223"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">9</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Hy Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">2</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Calysto Hy"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">11</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Redis Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">19</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"jove"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">7</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"jp-babel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">20</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"ICalico"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">16</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IMathics"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">13</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IWolfram"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">17</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Lua Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">1</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IPurescript"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">15</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IPyLua"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">19</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"ILua"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">7</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Calysto Scheme"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">14</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Calysto Processing"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">7</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"idl_kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">10</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Mochi Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">6</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Lua (used in Splash)"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Apache Toree (formerly Spark Kernel)"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">2</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Skulpt Python Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">42</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Calysto Bash"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">11</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"MetaKernel Python"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">71</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IVisual"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">12</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IBrainfuck"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">15</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"JupyterQ (KX Official Kernel)"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">9</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"KDB+/Q Kernel (IKdbQ)"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">20</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"KDB+/Q Kernel (KdbQ Kernel)"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">6</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"PyQ Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">12</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"ICryptol"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">2</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"cling"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">6</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"xeus-cling"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">8</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Xonsh"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">16</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Prolog"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">6</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"SWI-Prolog"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">19</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"common-lisp-jupyter"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">15</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Maxima-Jupyter"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">15</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"ielisp"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">2</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Calysto LC3"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">13</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Yacas"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">15</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IJython"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">9</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"ROOT"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">16</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Gnuplot Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">10</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Tcl"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">12</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Tcl"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">6</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"J"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">16</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Jython"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"C"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">13</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"jupyterC"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">8</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"TaQL"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Coconut"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">12</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"SPARQL"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">2</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"AIML chatbot"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">13</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IArm"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">11</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"SoS"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">4</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"jupyter-nodejs"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">4</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Pike"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">11</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"imatlab"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">6</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"jupyter-kotlin"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">12</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"jupyter_kernel_singular"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">9</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"spylon-kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">20</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"mit-scheme-kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">2</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"elm-kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">20</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Isbt"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">1</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"BeakerX"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">13</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"MicroPython"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">80</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IJava"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">55</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Guile"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">17</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"circuitpython_kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">18</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"stata_kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">3</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"iPyStata"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">16</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IRacket"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">55</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"jupyter-dot-kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">17</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Teradata SQL kernel and extensions"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">15</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"HiveQL Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">10</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"EvCxR Jupyter Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"StuPyd Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"coq_jupyter"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">15</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Cadabra2"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">14</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"iMongo"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">14</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"jupyter_kernel_chapel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">11</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"A Jupyter kernel for Vim script"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">13</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"SSH Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">14</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"GAP Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">1</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Wolfram Language for Jupyter"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">13</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"GrADS kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">1</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Bacatá"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">4</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"nelu-kernelu"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">9</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IPolyglot"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">17</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Emu86 Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">8</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Common Workflow Language (CWL) Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">7</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"MIPS Jupyter Kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">13</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"iTTS"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">3</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"xeus-clickhouse"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">14</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"IQSharp"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">1</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">".Net Interactive"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">18</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"mariadb_kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">12</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"ISetlX"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">15</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Ganymede"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">13</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"cqljupyter"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">2</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"iclingo"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">2</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"ICrystal"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">17</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"crystal_kernel"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">1</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"idg"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">16</span> }<span class="op">,</span> { <span class="st">"text"</span><span class="op">:</span> <span class="st">"Whitenote"</span><span class="op">,</span> <span class="st">"value"</span><span class="op">:</span> <span class="dv">7</span> } ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="287" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 286;"><span id="cb7-287"><a href="#cb7-287"></a>d3 <span class="op">=</span> {</span>
+<span id="cb7-288"><a href="#cb7-288"></a>  <span class="kw">const</span> d3 <span class="op">=</span> <span class="cf">await</span> <span class="pp">require</span>(<span class="st">"d3@5"</span><span class="op">,</span> <span class="st">"d3-array@2"</span>)<span class="op">;</span></span>
+<span id="cb7-289"><a href="#cb7-289"></a>  d3<span class="op">.</span><span class="at">cloud</span> <span class="op">=</span> <span class="cf">await</span> <span class="pp">require</span>(<span class="st">"d3-cloud@1"</span>)<span class="op">;</span></span>
+<span id="cb7-290"><a href="#cb7-290"></a>  <span class="cf">return</span> d3<span class="op">;</span></span>
+<span id="cb7-291"><a href="#cb7-291"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-7" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels" class="uri">https://github.com/jupyter/jupyter/wiki/Jupyter-kernels</a></p></li></ol></aside></section>
+<section id="observable-you-say" class="slide level2">
+<h2>Observable, You Say?<sup>1</sup></h2>
+<p><img data-src="observable-splash.png"></p>
+<aside><ol class="aside-footnotes"><li id="fn2"><p><a href="https://observablehq.com/" class="uri">https://observablehq.com/</a></p></li></ol></aside></section>
+<section id="observable-you-say-1" class="slide level2">
+<h2>Observable, You Say?<sup>1</sup></h2>
+<p><img data-src="obs1.jpg"> <img data-src="obs2.jpg"></p>
+<aside><ol class="aside-footnotes"><li id="fn3"><p><a href="https://chrome.google.com/webstore/detail/quartize/bcggojdjahdjhccmeanbnidmoicknmbb" class="uri">https://chrome.google.com/webstore/detail/quartize/bcggojdjahdjhccmeanbnidmoicknmbb</a></p></li></ol></aside></section>
+<section id="where-to-start" class="slide level2">
+<h2>Where To Start</h2>
+<ul>
+<li class="fragment">🤓 <code>quarto.org</code></li>
+<li class="fragment">✨ <a href="https://github.com/mcanouil/awesome-quarto">Awesome Quarto</a></li>
+<li class="fragment">👩🏽‍🎨 Your org/team designer/brand folks</li>
+<li class="fragment">💪 <a href="https://quarto.org/docs/websites/">Creating a Website</a>
+<ul>
+<li class="fragment">🥶 <a href="https://quarto.org/docs/projects/code-execution.html">Freezing content</a></li>
+</ul></li>
+<li class="fragment">🏋🏽‍♂️ <a href="https://rocker-project.org/">Rocker</a>
+<ul>
+<li class="fragment">➕ <a href="https://carpentries-incubator.github.io/docker-introduction/">Extending Docker</a></li>
+</ul></li>
+</ul>
+
+<img src="logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
+
+</div>
+</section>
+
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="2022-10-nydh_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="2022-10-nydh_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="2022-10-nydh_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="2022-10-nydh_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="2022-10-nydh_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="2022-10-nydh_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="2022-10-nydh_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="2022-10-nydh_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="2022-10-nydh_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="2022-10-nydh_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script type="ojs-module-contents">
+    {"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"wordCloud = {\n  const fontFamily = \"Roboto Condensed, Arial, Helvetica, sans-serif\";\n  \n  const svg = d3.create(\"svg\")\n    .attr(\"id\", \"word-cloud\")\n    .attr(\"viewBox\", [0, 0, width, height])\n    .attr(\"font-family\", fontFamily)\n    .attr(\"text-anchor\", \"middle\");\n\n  const displaySelection = svg.append(\"text\")\n    .attr(\"font-family\", \"Lucida Console, Courier, monospace\")\n    .attr(\"text-anchor\", \"start\")\n    .attr(\"alignment-baseline\", \"hanging\")\n    .attr(\"x\", 10)\n    .attr(\"y\", 10);\n    \n  const cloud = d3.cloud()\n    .size([width, height])\n    .words(data.map(d => Object.create(d)))\n    .padding(0)\n    .rotate(() => 0)\n    .font(fontFamily)\n    .fontSize(d => s(d.value))\n    .on(\"word\", ({size, x, y, rotate, text}) => {\n      svg.append(\"text\")\n        .attr(\"font-size\", size)\n        .attr(\"transform\", `translate(${x},${y}) rotate(${rotate})`)\n        .text(text)\n        .classed(\"click-only-text\", true)\n        .classed(\"word-default\", true)\n        .on(\"mouseover\", handleMouseOver)\n        .on(\"mouseout\", handleMouseOut)\n        .on(\"click\", handleClick);\n      \n        function handleMouseOver(d, i) {\n          d3.select(this)\n            .classed(\"word-hovered\", true)\n            .transition(`mouseover-${text}`).duration(200).ease(d3.easeLinear)\n              .attr(\"font-size\", size + 2)\n              .attr(\"font-weight\", \"bold\");\n        }\n        \n        function handleMouseOut(d, i) {\n          d3.select(this)\n            .classed(\"word-hovered\", false)\n            .interrupt(`mouseover-${text}`)\n              .attr(\"font-size\", size);\n        }\n        \n        function handleClick(d, i) {\n          var e = d3.select(this);\n          displaySelection.text(`selection=\"${e.text()}\"`);\n          e.classed(\"word-selected\", !e.classed(\"word-selected\"));\n        }\n\n    });\n  \n  cloud.start();\n  invalidation.then(() => cloud.stop());\n  \n  return svg.node();\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"html`<style type=\"text/css\">\n\n  .click-only-text {\n      cursor: pointer;\n      -webkit-user-select: none;\n      -moz-user-select: none;\n      -ms-user-select: none;\n      user-select: none;\n    }\n  .click-only-text::selection {\n      background: none;\n    }\n\n  .word-default {\n      fill: cadetblue;\n      font-weight: normal;\n    }\n  .word-hovered {\n      fill: white;\n      font-weight: bold;\n    }\n  .word-selected {\n      fill: darkslategrey;\n      font-weight: bold;\n    }\n\n</style>`;\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"s = d3\n  .scaleSqrt()\n  .domain([1, d3.max(data.map((d) => d.value))])\n  .range([6, 102])\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"padding = 0\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"height = 700\n"},{"methodName":"interpret","cellName":"ojs-cell-6","inline":false,"source":"data = [ { \"text\": \"Micronaut\", \"value\": 17 }, { \"text\": \"Agda kernel\", \"value\": 12 }, { \"text\": \"Dyalog Jupyter Kernel\", \"value\": 1 }, { \"text\": \"Coarray-Fortran\", \"value\": 2 }, { \"text\": \"LFortran\", \"value\": 18 }, { \"text\": \"Ansible Jupyter Kernel\", \"value\": 3 }, { \"text\": \"sparkmagic\", \"value\": 12 }, { \"text\": \"sas_kernel\", \"value\": 9 }, { \"text\": \"IPyKernel\", \"value\": 17 }, { \"text\": \"IJulia\", \"value\": 18 }, { \"text\": \"IHaskell\", \"value\": 1 }, { \"text\": \"IRuby\", \"value\": 5 }, { \"text\": \"tslab\", \"value\": 15 }, { \"text\": \"IJavascript\", \"value\": 80 }, { \"text\": \"ITypeScript\", \"value\": 8 }, { \"text\": \"jpCoffeescript\", \"value\": 5 }, { \"text\": \"jp-LiveScript\", \"value\": 8 }, { \"text\": \"Juka\", \"value\": 14 }, { \"text\": \"ICSharp\", \"value\": 3 }, { \"text\": \"IRKernel\", \"value\": 54 }, { \"text\": \"SageMath\", \"value\": 9 }, { \"text\": \"pari_jupyter\", \"value\": 19 }, { \"text\": \"IFSharp\", \"value\": 15 }, { \"text\": \"lgo\", \"value\": 17 }, { \"text\": \"iGalileo\", \"value\": 20 }, { \"text\": \"gopherlab\", \"value\": 16 }, { \"text\": \"Gophernotes\", \"value\": 49 }, { \"text\": \"IGo\", \"value\": 73 }, { \"text\": \"IScala\", \"value\": 1 }, { \"text\": \"almond (old name: Jupyter-scala)\", \"value\": 5 }, { \"text\": \"IErlang\", \"value\": 4 }, { \"text\": \"ITorch\", \"value\": 14 }, { \"text\": \"IElixir\", \"value\": 13 }, { \"text\": \"ierl\", \"value\": 4 }, { \"text\": \"IAldor\", \"value\": 11 }, { \"text\": \"IOCaml\", \"value\": 5 }, { \"text\": \"OCaml-Jupyter\", \"value\": 12 }, { \"text\": \"IForth\", \"value\": 1 }, { \"text\": \"peforth\", \"value\": 2 }, { \"text\": \"IPerl\", \"value\": 5 }, { \"text\": \"Perl6\", \"value\": 12 }, { \"text\": \"IPerl6\", \"value\": 12 }, { \"text\": \"Jupyter-Perl6\", \"value\": 6 }, { \"text\": \"IPHP\", \"value\": 10 }, { \"text\": \"Jupyter-PHP\", \"value\": 17 }, { \"text\": \"IOctave\", \"value\": 4 }, { \"text\": \"IScilab\", \"value\": 6 }, { \"text\": \"MATLAB Kernel\", \"value\": 7 }, { \"text\": \"Bash\", \"value\": 17 }, { \"text\": \"Z shell\", \"value\": 8 }, { \"text\": \"Pharo Smalltalk\", \"value\": 9 }, { \"text\": \"PowerShell\", \"value\": 9 }, { \"text\": \"CloJupyter\", \"value\": 2 }, { \"text\": \"CLJ-Jupyter\", \"value\": 15 }, { \"text\": \"jupyter-kernel-jsr223\", \"value\": 9 }, { \"text\": \"Hy Kernel\", \"value\": 2 }, { \"text\": \"Calysto Hy\", \"value\": 11 }, { \"text\": \"Redis Kernel\", \"value\": 19 }, { \"text\": \"jove\", \"value\": 7 }, { \"text\": \"jp-babel\", \"value\": 20 }, { \"text\": \"ICalico\", \"value\": 16 }, { \"text\": \"IMathics\", \"value\": 13 }, { \"text\": \"IWolfram\", \"value\": 17 }, { \"text\": \"Lua Kernel\", \"value\": 1 }, { \"text\": \"IPurescript\", \"value\": 15 }, { \"text\": \"IPyLua\", \"value\": 19 }, { \"text\": \"ILua\", \"value\": 7 }, { \"text\": \"Calysto Scheme\", \"value\": 14 }, { \"text\": \"Calysto Processing\", \"value\": 7 }, { \"text\": \"idl_kernel\", \"value\": 10 }, { \"text\": \"Mochi Kernel\", \"value\": 6 }, { \"text\": \"Lua (used in Splash)\", \"value\": 5 }, { \"text\": \"Apache Toree (formerly Spark Kernel)\", \"value\": 2 }, { \"text\": \"Skulpt Python Kernel\", \"value\": 42 }, { \"text\": \"Calysto Bash\", \"value\": 11 }, { \"text\": \"MetaKernel Python\", \"value\": 71 }, { \"text\": \"IVisual\", \"value\": 12 }, { \"text\": \"IBrainfuck\", \"value\": 15 }, { \"text\": \"JupyterQ (KX Official Kernel)\", \"value\": 9 }, { \"text\": \"KDB+/Q Kernel (IKdbQ)\", \"value\": 20 }, { \"text\": \"KDB+/Q Kernel (KdbQ Kernel)\", \"value\": 6 }, { \"text\": \"PyQ Kernel\", \"value\": 12 }, { \"text\": \"ICryptol\", \"value\": 2 }, { \"text\": \"cling\", \"value\": 6 }, { \"text\": \"xeus-cling\", \"value\": 8 }, { \"text\": \"Xonsh\", \"value\": 16 }, { \"text\": \"Prolog\", \"value\": 6 }, { \"text\": \"SWI-Prolog\", \"value\": 19 }, { \"text\": \"common-lisp-jupyter\", \"value\": 15 }, { \"text\": \"Maxima-Jupyter\", \"value\": 15 }, { \"text\": \"ielisp\", \"value\": 2 }, { \"text\": \"Calysto LC3\", \"value\": 13 }, { \"text\": \"Yacas\", \"value\": 15 }, { \"text\": \"IJython\", \"value\": 9 }, { \"text\": \"ROOT\", \"value\": 16 }, { \"text\": \"Gnuplot Kernel\", \"value\": 10 }, { \"text\": \"Tcl\", \"value\": 12 }, { \"text\": \"Tcl\", \"value\": 6 }, { \"text\": \"J\", \"value\": 16 }, { \"text\": \"Jython\", \"value\": 5 }, { \"text\": \"C\", \"value\": 13 }, { \"text\": \"jupyterC\", \"value\": 8 }, { \"text\": \"TaQL\", \"value\": 5 }, { \"text\": \"Coconut\", \"value\": 12 }, { \"text\": \"SPARQL\", \"value\": 2 }, { \"text\": \"AIML chatbot\", \"value\": 13 }, { \"text\": \"IArm\", \"value\": 11 }, { \"text\": \"SoS\", \"value\": 4 }, { \"text\": \"jupyter-nodejs\", \"value\": 4 }, { \"text\": \"Pike\", \"value\": 11 }, { \"text\": \"imatlab\", \"value\": 6 }, { \"text\": \"jupyter-kotlin\", \"value\": 12 }, { \"text\": \"jupyter_kernel_singular\", \"value\": 9 }, { \"text\": \"spylon-kernel\", \"value\": 20 }, { \"text\": \"mit-scheme-kernel\", \"value\": 2 }, { \"text\": \"elm-kernel\", \"value\": 20 }, { \"text\": \"Isbt\", \"value\": 1 }, { \"text\": \"BeakerX\", \"value\": 13 }, { \"text\": \"MicroPython\", \"value\": 80 }, { \"text\": \"IJava\", \"value\": 55 }, { \"text\": \"Guile\", \"value\": 17 }, { \"text\": \"circuitpython_kernel\", \"value\": 18 }, { \"text\": \"stata_kernel\", \"value\": 3 }, { \"text\": \"iPyStata\", \"value\": 16 }, { \"text\": \"IRacket\", \"value\": 55 }, { \"text\": \"jupyter-dot-kernel\", \"value\": 17 }, { \"text\": \"Teradata SQL kernel and extensions\", \"value\": 15 }, { \"text\": \"HiveQL Kernel\", \"value\": 10 }, { \"text\": \"EvCxR Jupyter Kernel\", \"value\": 5 }, { \"text\": \"StuPyd Kernel\", \"value\": 5 }, { \"text\": \"coq_jupyter\", \"value\": 15 }, { \"text\": \"Cadabra2\", \"value\": 14 }, { \"text\": \"iMongo\", \"value\": 14 }, { \"text\": \"jupyter_kernel_chapel\", \"value\": 11 }, { \"text\": \"A Jupyter kernel for Vim script\", \"value\": 13 }, { \"text\": \"SSH Kernel\", \"value\": 14 }, { \"text\": \"GAP Kernel\", \"value\": 1 }, { \"text\": \"Wolfram Language for Jupyter\", \"value\": 13 }, { \"text\": \"GrADS kernel\", \"value\": 1 }, { \"text\": \"Bacatá\", \"value\": 4 }, { \"text\": \"nelu-kernelu\", \"value\": 9 }, { \"text\": \"IPolyglot\", \"value\": 17 }, { \"text\": \"Emu86 Kernel\", \"value\": 8 }, { \"text\": \"Common Workflow Language (CWL) Kernel\", \"value\": 7 }, { \"text\": \"MIPS Jupyter Kernel\", \"value\": 13 }, { \"text\": \"iTTS\", \"value\": 3 }, { \"text\": \"xeus-clickhouse\", \"value\": 14 }, { \"text\": \"IQSharp\", \"value\": 1 }, { \"text\": \".Net Interactive\", \"value\": 18 }, { \"text\": \"mariadb_kernel\", \"value\": 12 }, { \"text\": \"ISetlX\", \"value\": 15 }, { \"text\": \"Ganymede\", \"value\": 13 }, { \"text\": \"cqljupyter\", \"value\": 2 }, { \"text\": \"iclingo\", \"value\": 2 }, { \"text\": \"ICrystal\", \"value\": 17 }, { \"text\": \"crystal_kernel\", \"value\": 1 }, { \"text\": \"idg\", \"value\": 16 }, { \"text\": \"Whitenote\", \"value\": 7 } ]\n"},{"methodName":"interpret","cellName":"ojs-cell-7","inline":false,"source":"d3 = {\n  const d3 = await require(\"d3@5\", \"d3-array@2\");\n  d3.cloud = await require(\"d3-cloud@1\");\n  return d3;\n}\n"}]}
+    </script>
+    <script type="module">
+    window._ojs.paths.runtimeToDoc = "../../..";
+    window._ojs.paths.runtimeToRoot = "../../..";
+    window._ojs.paths.docToRoot = "";
+    window._ojs.selfContained = false;
+    window._ojs.runtime.interpretFromScriptTags();
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

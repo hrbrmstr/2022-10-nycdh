@@ -1,0 +1,13 @@
+title: "NYDH Slides"
+author: "@hrbrmstr"
+institute: "GreyNoise Intelligence"
+version: 1.0.0
+contributes:
+  formats:
+    revealjs:
+      incremental: true
+      filters: [copy-resources.lua] # This is so resources get copied
+      theme: [default, theme.scss]
+      format-resources:
+        - logo.png
+        - pawel-czerwinski-W10XfpqLu4Y-unsplash.jpg
