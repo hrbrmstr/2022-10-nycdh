@@ -324,6 +324,15 @@ d3 = {
     - ➕ [Extending Docker](https://carpentries-incubator.github.io/docker-introduction/)
 
 
+## Some Of My Quarto Resources
+
+- [`rstudio-electron-quarto-installer`](https://github.com/hrbrmstr/rstudio-electron-quarto-installer)
+- [`quarto-organization-template`](https://github.com/hrbrmstr/quarto-organization-template)
+- [`quarto-r-ojs-choropleth`](https://github.com/hrbrmstr/quarto-r-ojs-choropleth)
+- [`quarto-538-house-carto`](https://github.com/hrbrmstr/quarto-538-house-carto)
+- [`conus-foliage-2022`](https://github.com/hrbrmstr/conus-foliage-2022)
+- [`ohq2quarto`](https://github.com/hrbrmstr/ohq2quarto)
+
 ## A.M.A. { .black-title background-image="towfiqu-barbhuiya-oZuBNC-6E2s-unsplash.jpg" background-opacity="1"}
 
 <span style='color:black'>**Quarto RevealJS Source:**<br/>https://github.com/hrbrmstr/2022-10-nydh</span>
