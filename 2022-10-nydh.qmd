@@ -1,5 +1,5 @@
 ---
-title: "<span style='color:#b51f1f'>NY Data Hackers</span><br/>Democratizing Data Science Teams <span style='color:#6c6c6c'>With</span> <span style='color:#81a9d7'>Quarto</span>"
+title: "<span style='color:#b51f1f'>NYC Data Hackers</span><br/>Democratizing Data Science Teams <span style='color:#6c6c6c'>With</span> <span style='color:#81a9d7'>Quarto</span>"
 date-format: iso
 author: "boB Rudis (@hrbrmstr)"
 institute: "GreyNoise Intelligence"
@@ -337,6 +337,10 @@ d3 = {
 
 ## A.M.A. { .black-title background-image="towfiqu-barbhuiya-oZuBNC-6E2s-unsplash.jpg" background-opacity="1"}
 
-<span style='color:black'>**Quarto RevealJS Source:**<br/>https://github.com/hrbrmstr/2022-10-nydh</span>
+<span style='color:black'>**Quarto RevealJS Source:**<br/>https://github.com/hrbrmstr/2022-10-nycdh</span>
 
-![](pres-qr.png)
+```{python}
+#| echo: false
+import qrcode
+qrcode.make("https://github.com/hrbrmstr/2022-10-nycdh")
+```
