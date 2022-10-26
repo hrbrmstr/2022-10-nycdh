@@ -307,11 +307,11 @@ d3 = {
 
 ## The Quarto Value Proposition (i.e. What you get…)
 
-- Access to language agnostic cutting-edge data analysis and visalization tools
-- Uniform styling across web sites, documents, and presenations
-- Reproduciblity
-- Content Adaptibility
-- Fame and fortune^[Fame & fortune not guaranteed.]
+- Access to <span style='color:goldenrod'>language agnostic</span> cutting-edge data analysis and visalization tools
+- <span style='color:goldenrod'>Uniform styling</span> across web sites, documents, and presenations
+- <u>Reproduciblity</u>
+- Content <span style='color:goldenrod'>Adaptibility</span>
+- _Fame and fortune_
 
 ## Where To Start
 
@@ -322,3 +322,10 @@ d3 = {
     - 🥶 [Freezing content](https://quarto.org/docs/projects/code-execution.html)
 - 🏋🏽‍♂️ [Rocker](https://rocker-project.org/)
     - ➕ [Extending Docker](https://carpentries-incubator.github.io/docker-introduction/)
+
+
+## A.M.A. { .black-title background-image="towfiqu-barbhuiya-oZuBNC-6E2s-unsplash.jpg" background-opacity="1"}
+
+<span style='color:black'>**Quarto RevealJS Source:**<br/>https://github.com/hrbrmstr/2022-10-nydh</span>
+
+![](pres-qr.png)

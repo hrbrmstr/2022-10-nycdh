@@ -2,7 +2,10 @@
 
 ## Democratizing Data Science Teams With Quarto
 
-SlidebBackground by [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/dark-gradient?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
+
+## Image Credits
+
+Title Slide background by [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/dark-gradient?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
 
 Opinion photo by <a href="https://unsplash.com/@steve_j?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Steve Johnson</a> on <a href="https://unsplash.com/s/photos/opinion?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
@@ -17,4 +20,6 @@ Photo by <a href="https://unsplash.com/@quasichiara?utm_source=unsplash&utm_medi
 	Photo by <a href="https://unsplash.com/@medias_emotiontech?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">eMotion Tech</a> on <a href="https://unsplash.com/s/photos/duplicate?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
 	Photo by <a href="https://unsplash.com/@glencarrie?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Glen Carrie</a> on <a href="https://unsplash.com/s/photos/goal?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
+	Photo by <a href="https://unsplash.com/@towfiqu999999?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Towfiqu barbhuiya</a> on <a href="https://unsplash.com/s/photos/ask?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
