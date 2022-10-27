@@ -159,7 +159,7 @@ flowchart LR
 - R
 - Python
 - Julia
-- Observbable/JavaScript `#WAT`
+- Observable/JavaScript `#WAT`
 - <span style='color:goldenrod'>But, I'm lying to you… </span>R & Python have built-in extensibility (i.e. `{V8}`, `{rJava}`, `{reticulate}`)
 - And, it goes way beyond that…
 
@@ -309,8 +309,8 @@ d3 = {
 
 ## The Quarto Value Proposition (i.e. What you get…)
 
-- Access to <span style='color:goldenrod'>language agnostic</span> cutting-edge data analysis and visalization tools
-- <span style='color:goldenrod'>Uniform styling</span> across web sites, documents, and presenations
+- Access to <span style='color:goldenrod'>language agnostic</span> cutting-edge data analysis and visualization tools
+- <span style='color:goldenrod'>Uniform styling</span> across web sites, documents, and presentations
 - <u>Reproduciblity</u>
 - Content <span style='color:goldenrod'>Adaptibility</span>
 - _Fame and fortune_
