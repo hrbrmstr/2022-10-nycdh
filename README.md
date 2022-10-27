@@ -2,6 +2,7 @@
 
 ## Democratizing Data Science Teams With Quarto
 
+NOTE: This REQUIRES the [1.2.x experimental quarto builds](https://quarto.org/docs/download/prerelease.html).
 
 ## Image Credits
 

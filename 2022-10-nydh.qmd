@@ -17,7 +17,7 @@ format:
     logo: "logo.png"
 ---
 
-## Where To Find Me{padding-bottom=60pt}
+## Where To Find Me {padding-bottom=60pt}
 
 :::: {.columns}
 
